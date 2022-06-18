@@ -1,8 +1,10 @@
 import React from "react"
 import "./Salary.css"
 
-export const Salary = () => (
+export const Salary = () => {
+
+    return (
     <section className="salary">
-        <h3 className="salary__name">Hello</h3>
-    </section>
-)
+        <h3 className="salary__name">Table here</h3>
+    </section>)
+}
