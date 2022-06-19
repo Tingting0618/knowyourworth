@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Router, Routes } from "react-router-dom"
 import { WageProvider } from "./salary/DataManager"
 import { WageList } from "./salary/WageList"
+import { WageForm } from "./salary/WageForm"
 
 export const ApplicationViews = () => {
     return (
@@ -16,7 +17,7 @@ export const ApplicationViews = () => {
                 </Routes>
 
                 <Routes>
-                    <Route path="/placeholder" element={<WageList />}/>
+                    <Route path="/add_my_salary" element={<WageForm />}/>
                 </Routes>
 
             </WageProvider>
