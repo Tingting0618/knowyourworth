@@ -19,7 +19,8 @@ export const WageForm = () => {
         city: "",
         work_state: "",
         year: 2022,
-        source: "User submission"
+        source: "User submission",
+        timestamp:""
     });
 
     const navigate = useNavigate();
@@ -44,6 +45,14 @@ export const WageForm = () => {
         if (wage.title === "" || wage.salary === "" || parseInt(wage.salary)<=10000 ) {
             window.alert("Please input a valid job title and annual salary")
         } else {
+            const currentdate = new Date(); 
+            const datetime =currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
             const newWage = {
                 title: wage.title,
                 company: wage.company,
@@ -51,7 +60,8 @@ export const WageForm = () => {
                 city: wage.city,
                 work_state: wage.work_state,
                 year: wage.year,
-                source: "User submission"
+                source: "User submission",
+                timestamp:datetime
 
             }
             addWage(newWage)
