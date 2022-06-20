@@ -101,7 +101,7 @@ export const WageForm = () => {
                 </div>
             </fieldset>
 
-            <button className="btn btn-success"   onClick={handleClickSaveWage}>
+            <button className="btn btn-success mt-3"  onClick={handleClickSaveWage}>
                 Complete
             </button>
         </form>

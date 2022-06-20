@@ -1,3 +1,5 @@
+//Reference: https://github.com/TheWidlarzGroup/RT7-example
+
 import React, { useEffect, useMemo,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {WageContext} from './DataManager'
@@ -63,11 +65,12 @@ const WageTable = () => {
 
   return (
     <>
-    <h2>Know Your Worth. App</h2>
+    <h2>Know Your Worth. App 🔥</h2>
     <h6>Our mission is to break down barriers, increase transparency, and make salary negotiation easier.</h6>
     <Container style={{ marginTop: 30 }}>
-    <button className="btn btn-primary btn-sm"  onClick={handleReset}>Reset Filter</button>
-    <button className="btn btn-outline-success btn-sm"  onClick={
+    <button className="btn btn-primary btn-sm"  onClick={handleReset}
+    style={{margin: '0.2rem'}}>Reset Filter</button>
+    <button className="btn btn-success btn-sm" style={{margin: '0.2rem'}} onClick={
           () => navigate("/add_my_salary")
         }>
           Add My Salary (anonymously ofc!)
