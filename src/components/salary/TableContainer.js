@@ -40,7 +40,7 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
   );
 
   const generateSortingIndicator = (column) => {
-    return column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ' 🔼🔽';
+    return column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ' ↑↓';
   };
 
   const onChangeInSelect = (event) => {
@@ -136,7 +136,7 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
             onChange={onChangeInSelect}
           >
             
-            {[10, 20, 30, 40, 50].map((pageSize) => (
+            {[10,30,100].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>

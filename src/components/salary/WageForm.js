@@ -62,7 +62,8 @@ export const WageForm = () => {
     return (
         <form className="wageForm">
             <h3 className="wageForm__title">Add my salary</h3>
-            <h6>Thanks for your anonymous contribution to help other people out there!</h6>
+            <h6>Thanks for your anonymous contribution to help other people out there. May good luck be with you!</h6>
+
             <br/>
             <fieldset>
                 <div className="form-group">

@@ -66,7 +66,7 @@ const WageTable = () => {
   return (
     <>
     <h2>Know Your Worth. App 🔥</h2>
-    <h6>Our mission is to break down barriers, increase transparency, and make salary negotiation easier.</h6>
+    <h6> Our mission is to increase transparency and make salary negotiation easier.</h6>
     <Container style={{ marginTop: 30 }}>
     <button className="btn btn-primary btn-sm"  onClick={handleReset}
     style={{margin: '0.2rem'}}>Reset Filter</button>
