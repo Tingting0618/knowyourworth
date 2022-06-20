@@ -8,14 +8,14 @@ export const NavBar = (props) => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Know Your Worth</Link>
             </li>
-
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/add_my_salary">Add My Salary </Link>
+            </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/login">Login</Link>
             </li>
 
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/add_my_salary">add_my_salary </Link>
-            </li>
+
         </ul>
     )
 }
