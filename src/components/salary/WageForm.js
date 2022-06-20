@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import { WageContext } from "./DataManager"
-import "./Salary"
 import { useNavigate } from 'react-router-dom';
-// https://github.com/nashville-software-school/client-side-mastery/blob/e-15/book-6-nashville-kennels/chapters/FORMS_CONTROLLED_COMPONENT.md
+import "./WageTable.css"
 
 export const WageForm = () => {
     const { addWage } = useContext(WageContext)
@@ -16,9 +15,11 @@ export const WageForm = () => {
     const [wage, setWage] = useState({
         title: "",
         company: "",
-        // salary: 0,
-        // work_state: "",
-        // year: 0
+        salary: "",
+        city: "",
+        work_state: "",
+        year: 2022,
+        source: "User submission"
     });
 
     const navigate = useNavigate();
@@ -40,50 +41,68 @@ export const WageForm = () => {
     const handleClickSaveWage = (event) => {
         event.preventDefault() //Prevents the browser from submitting the form
 
+        if (wage.title === "" || wage.salary === "" || parseInt(wage.salary)<=10000 ) {
+            window.alert("Please input a valid job title and annual salary")
+        } else {
+            const newWage = {
+                title: wage.title,
+                company: wage.company,
+                salary: wage.salary,
+                city: wage.city,
+                work_state: wage.work_state,
+                year: wage.year,
+                source: "User submission"
 
-        const newWage = {
-            title: wage.name,
-            company: wage.breed,
-            salary: "wage.salary",
-            work_state: "work_state",
-            // year: wage.year
-
+            }
+            addWage(newWage)
+                .then(() => navigate("/"))
         }
-        addWage(newWage)
-            .then(() => navigate("/"))
     }
 
     return (
         <form className="wageForm">
-            <h2 className="wageForm__title">New Wage</h2>
+            <h3 className="wageForm__title">Add my salary</h3>
+            <h6>Thanks for your anonymous contribution to help other people out there!</h6>
+            <br/>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Wage name:</label>
-                    <input type="text" id="title" required autoFocus className="form-control" placeholder="Wage title" value={wage.title} onChange={handleControlledInputChange} />
+                    <label htmlFor="name">Job Title:</label>
+                    <input type="text" id="title" required autoFocus className="form-control" placeholder="Your job title" value={wage.title} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Wage company:</label>
-                    <input type="text" id="company" required autoFocus className="form-control" placeholder="Wage company" value={wage.company} onChange={handleControlledInputChange} />
+                    <label htmlFor="name">Company:</label>
+                    <input type="text" id="company" required autoFocus className="form-control" placeholder="Your company company" value={wage.company} onChange={handleControlledInputChange} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="salary">Salary:</label>
+                    <input type="number" id="salary" required autoFocus className="form-control" placeholder="Your annual base salary" value={wage.salary} onChange={handleControlledInputChange} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="year">Year:</label>
+                    <input type="number" id="year" required autoFocus className="form-control" placeholder="Year" value={wage.year} onChange={handleControlledInputChange} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="city">City:</label>
+                    <input type="text" id="city" required autoFocus className="form-control" placeholder="Work Site City" value={wage.city} onChange={handleControlledInputChange} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">State:</label>
+                    <input type="text" id="work_state" required autoFocus className="form-control" placeholder="Work Site State" value={wage.work_state} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
-            {/* <fieldset>
-        <div className="form-group">
-          <label htmlFor="customerId">Customer: </label>
-          <select name="customer" id="customerId" className="form-control" value={wage.customerId} onChange={handleControlledInputChange}>
-            <option value="0">Select a customer</option>
-            {customers.map(c => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </fieldset> */}
-            <button className="btn btn-primary" onClick={handleClickSaveWage}>
-                Save Wage
+            <button className="btn btn-success"   onClick={handleClickSaveWage}>
+                Complete
             </button>
         </form>
     )

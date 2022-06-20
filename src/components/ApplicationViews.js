@@ -1,24 +1,26 @@
 import React from "react"
-import { Route, Router, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import { WageProvider } from "./salary/DataManager"
-import { WageList } from "./salary/WageList"
 import { WageForm } from "./salary/WageForm"
+import WageTable from "./salary/WageTable"
 
 export const ApplicationViews = () => {
     return (
         <>
             <WageProvider>
-                <Routes>
-                    <Route path="/" element={<WageList />}/>
-                </Routes>
-
-                <Routes>
+                {/* <Routes>
                     <Route path="/login" element={<WageList />}/>
-                </Routes>
+                </Routes> */}
 
                 <Routes>
                     <Route path="/add_my_salary" element={<WageForm />}/>
                 </Routes>
+
+
+                <Routes>
+                    <Route path="/" element={<WageTable />}/>
+                </Routes>
+
 
             </WageProvider>
         </>
