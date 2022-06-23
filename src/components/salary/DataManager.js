@@ -8,13 +8,13 @@ export const WageProvider = (props) => {
     const [wages, setWages] = useState([])
 
     const getWages = () => {
-        return fetch("http://localhost:8088/wages?")
+        return fetch("http://127.0.0.1:8000/wages")
         .then(res => res.json())
         .then(setWages)
     }
 
     const addWage = wageObj => {
-        return fetch("http://localhost:8088/wages", {
+        return fetch("http://127.0.0.1:8000/wages", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
